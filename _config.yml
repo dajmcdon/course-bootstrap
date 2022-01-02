@@ -1,2 +1,19 @@
+title: Course Website
+email: daniel@stat.ubc.ca
+author: Daniel J. McDonald
+author-url: https://dajmcdon.github.io/
+description: >
+  Brief course description
+baseurl: ""
+url: ""
+
+
+navigation:
+  - title: "Link 1"
+    url: https://www.google.com/
+  - title: "Link 2"
+    url: https://www.github.com/
+
+
 remote_theme: dajmcdon/course-bootstrap
 

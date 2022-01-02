@@ -2,6 +2,28 @@
 
 $primary: #099673;
 
+
+
+
+
+/* Likely no changes to the below */
+
 .bg-primary {
   background-color: $primary !important;
 }
+
+
+.license {
+  text-align: center;
+  font-size: small;
+  /* border-top: 1px solid black; */
+  padding-top: 1em;
+  margin-top: 2em;
+}
+
+$container-max-widths: (
+  sm: 540px,
+  md: 640px,
+  lg: 690px,
+  xl: 720px
+) !default;

@@ -45,7 +45,7 @@
             {%- endfor -%}
           </ul>
           <ul class="navbar-nav mr-3">
-            {%- for header_link in site.data.nav_links -%}
+            {%- for header_link in site.navigation -%}
               <li class="nav-item">
                 <a class="nav-link" title="{{ header_link.text || escape }}" href="{{ header_link.link }}">
                   {%- if header_link.icon -%}<i class="{{ header_link.icon }} fa-fw mr-1"></i>{%- endif -%}
