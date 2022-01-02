@@ -47,9 +47,9 @@
           <ul class="navbar-nav mr-3">
             {%- for header_link in site.navigation -%}
               <li class="nav-item">
-                <a class="nav-link" title="{{ header_link.text || escape }}" href="{{ header_link.link }}">
+                <a class="nav-link" title="{{ header_link.title || escape }}" href="{{ header_link.url }}">
                   {%- if header_link.icon -%}<i class="{{ header_link.icon }} fa-fw mr-1"></i>{%- endif -%}
-                  <span class="d-md-none d-xl-inline">{{ header_link.text || escape }}</span>
+                  <span class="d-md-none d-xl-inline">{{ header_link.title || escape }}</span>
                 </a>
               </li>
             {%- endfor -%}
