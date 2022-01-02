@@ -1,0 +1,5 @@
+navigation:
+  - title: "Link 1"
+    url: https://www.google.com/
+  - title: "Link 2"
+    url: https://www.github.com/

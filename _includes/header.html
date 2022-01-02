@@ -1,0 +1,61 @@
+<header class="d-print-none">
+  <nav id="header-nav" class="navbar navbar-expand-md navbar-dark fixed-top bg-primary d-print-none">
+    <div class="container">
+      {%- assign active_class = nil -%}
+      {%- if page.url == "/" -%}
+        {%- assign active_class = " active" -%}
+      {%- endif -%}
+      <a class="navbar-brand{{ active_class }}" href="{{ site.github.url }}">
+        {%- if site.logo_image -%}<img alt="logo" class="mr-2" src="{{ '/assets/icon/favicon-32x32.png' | relative_url }}"/>{%- endif -%}
+        <span class="d-md-none d-lg-inline">{{ site.title | escape }}</span>
+      </a>
+      {%- assign page_paths = site.pages | sort: 'order' | map: "path" -%}
+      {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
+      {%- assign current_menu = '' -%}
+      {%- if titles_size > 0 -%}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <!-- Top-level links -->
+            {%- for path in page_paths -%}
+              {%- assign my_page = site.pages | where: "path", path | first -%}
+              {%- if my_page.url == page.url -%}
+                {%- assign current_menu = my_page.menu -%}
+              {%- endif -%}
+              {%- unless my_page.exclude_from_header -%}
+                {%- if my_page.menu == 'none' -%}
+                  {%- assign active_class = nil -%}
+                  {%- if my_page.title -%}
+                    {%- if my_page.url == page.url -%}
+                      {%- assign active_class = " active" -%}
+                    {%- endif -%}
+                    <li class="nav-item{{ active_class }}">
+                      <a class="nav-link" href="{{ my_page.url | relative_url }}">
+                        {%- if my_page.icon -%}
+                          <i class="{{ my_page.icon }} fa-fw"></i>
+                        {%- endif -%}
+                        {{ my_page.title | escape }}
+                      </a>
+                    </li>
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endunless -%}
+            {%- endfor -%}
+          </ul>
+          <ul class="navbar-nav mr-3">
+            {%- for header_link in site.data.nav_links -%}
+              <li class="nav-item">
+                <a class="nav-link" title="{{ header_link.text || escape }}" href="{{ header_link.link }}">
+                  {%- if header_link.icon -%}<i class="{{ header_link.icon }} fa-fw mr-1"></i>{%- endif -%}
+                  <span class="d-md-none d-xl-inline">{{ header_link.text || escape }}</span>
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,12 @@
+---
+# main requires yml header
+---
+
+@import "syntax-highlighting";
+
+// here we set any customizations for the lux bootswatch theme.
+// see https://github.com/thomaspark/bootswatch/tree/v5/dist/lux
+
+$primary: 
+$navbar-padding-y:          1rem !default;
+$navbar-dark-hover-color:   $white !default;
